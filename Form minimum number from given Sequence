@@ -1,0 +1,42 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+			Scanner scn=new Scanner(System.in);
+			int a=scn.nextInt();
+			String array[]=new String [a];
+			for(int i=0;i<a;i++){
+				array[i]=scn.next();;;;;;;;;;
+			}
+			
+		//	int arr1[]=new int[a+1];
+		
+			for(int i=0;i<a;i++){
+				int count=1;
+				String g=array[i];
+					Stack<Integer>ll=new Stack<>();
+					int arr1[]=new int[g.length()+1];
+				for(int j=0;j<arr1.length;j++){
+						if(j==g.length()||g.charAt(j)=='I'){
+							arr1[j]=count++;
+						//	count++;
+							while(!ll.isEmpty() && g.charAt(ll.peek())=='D'){
+								arr1[ll.pop()]=count++;
+							//	count++;
+							}
+						}
+						else{
+							ll.push(j);
+						}
+				}
+				while(!ll.isEmpty()){
+				arr1[ll.pop()]=count++;
+				}
+				String k="";
+				for( int z=0;z<arr1.length;z++){
+					k+=arr1[z];
+				}
+				System.out.println(k);
+				
+			}
+    }
+}
